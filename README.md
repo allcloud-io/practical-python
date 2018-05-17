@@ -19,6 +19,7 @@ through the following topics:
 - 2 or 3?
 - Setting up Your Work Environment
 - Using the Interactive Shell
+- Whitespace!
 - Data Types
 - Flow Control
 - Data Structures
@@ -32,11 +33,13 @@ through the following topics:
 
 ## What is Python?
 
->Fun fact: Python is named after the British comedy group [Monty Python][4].
+![monty python](images/monty_python.jpg)
 
-![monty python][monty python]
+>Fun fact! Python is named after [Monty Python's Flying Circus][4]. The official Python docs are
+>full of Monty Python references, jokes and easter eggs. By the way, if you don't know who Monty
+>Python are, please stop reading this guide as you obviously have more important things to learn.
 
-From the official Python [documentation][3]:
+OK, back to reality. From the official Python [documentation][3]:
 
 >Python is an interpreted, object-oriented, high-level programming language with dynamic semantics.
 
@@ -84,12 +87,40 @@ Python puts the focus on **developer productivity** rather than on performance. 
 you can't write high-performance code in Python, but -  again, generally speaking - Python apps
 tend to be much slower than Java apps, Go apps or C apps.
 
+**However**, the upside is that Python is **really easy to work with**. Its syntax is minimalist
+(`public static void main(String[] args) {System.out.println("Java is minimalist, too!");}`), it
+doesn't rely on [arcane characters][5] to do its job, it doesn't use parentheses and brackets when
+they aren't needed (((((((([hi!][6])))))))) and you can feel free to forget as many semicolons as
+you like!
+
+### Python is Dynamic
+
+The main thing it means for us is that we don't need to *tell* Python what type of a variable we
+are creating, it figures it out on its own:
+
+    my_string = "Ni!"
+    my_number = 3
+
 ### What Python is Not?
+
+**Python is not a program**. True, most Linux distributions come with an executable called
+`python`. This is actually the most common Python **interpreter** called [CPython][7] (because it
+is a program that is written in C). Python is a **language**, and CPython is just one Python
+*implementation*. [There][8] [are][9] [many][10] [others][11].
+
+And now for something completely different.
+
+## 2 or 3?
 
 TODO
 
 [1]: https://github.com/boto/boto3
 [2]: https://www.allcloud.io
 [3]: https://www.python.org/doc/essays/blurb/
-
-[monty python] images/monty_python.jpg
+[4]: https://en.wikipedia.org/wiki/Monty_Python%27s_Flying_Circus
+[5]: https://www.foo.be/docs/tpj/issues/vol4_3/tpj0403-0017.html
+[6]: https://en.wikipedia.org/wiki/Scheme_(programming_language)
+[7]: https://en.wikipedia.org/wiki/CPython
+[8]: https://pypy.org/
+[9]: http://www.jython.org/
+[10]: http://pypyjs.org/
