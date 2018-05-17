@@ -28,4 +28,4 @@ through the following topics:
 >NOTE: This repository was created for an internal Python workshop at [AllCloud][2].
 
 [1]: https://github.com/boto/boto3
-[2]: https://allcloud.io
+[2]: https://www.allcloud.io
