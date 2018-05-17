@@ -50,8 +50,8 @@ Let's break this down.
 When you write code you are doing nothing more than editing **simple text files**. These text files
 cannot be executed by the CPU inside your computer. The CPU speaks a very specific, low-level
 language ("machine language") which is extremely difficult to work with for humans. Moreover, every
-CPU type speaks **a different machine language**, so the Intel CPU inside your laptop cannot run
-the same code as your ARM CPU inside your phone.
+CPU type speaks a **different** machine language, so the Intel CPU inside your laptop cannot run
+the same code as the ARM CPU inside your phone.
 
 When you write code in C (or Go or Rust for that matter), you feed your code into a **compiler**,
 which is simply a program that can read text files and generate files with machine language, or
@@ -60,7 +60,7 @@ which is simply a program that can read text files and generate files with machi
 When you write code in Python, on the other hand, your code is fed to an **interpreter**, which is
 a program that **executes the code** instead of generating a binary file from it.
 
->NOTE: There above is not always true in the case of Python. I am presenting the most common case
+>NOTE: The above is not always true in the case of Python. I am presenting the most common case
 >here on purpose to help convey the message.
 
 ### Python is Object-Oriented
@@ -95,8 +95,8 @@ you like!
 
 ### Python is Dynamic
 
-The main thing it means for us is that we don't need to *tell* Python what type of a variable we
-are creating, it figures it out on its own:
+The main thing you need to know for now is that we don't need to *tell* Python what type of a
+variable we are creating, it figures it out on its own:
 
     my_string = "Ni!"
     my_number = 3
@@ -104,7 +104,7 @@ are creating, it figures it out on its own:
 ### What Python is Not?
 
 **Python is not a program**. True, most Linux distributions come with an executable called
-`python`. This is actually the most common Python **interpreter** called [CPython][7] (because it
+`python`. This is actually the most common **Python interpreter** called [CPython][7] (because it
 is a program that is written in C). Python is a **language**, and CPython is just one Python
 *implementation*. [There][8] [are][9] [many][10] [others][11].
 
@@ -112,7 +112,23 @@ And now for something completely different.
 
 ## 2 or 3?
 
-TODO
+3.
+
+## Setting up Your Work Environment
+
+In order to run Python code you will need a Python interpreter.
+
+### Mac Users
+
+Follow these great [instructions][12] from Kenneth Reitz.
+
+### Windows Users
+
+You can get a Mac [here][13].
+
+### Linux Users
+
+You probably don't need assistance, but in case you do - [there you go][14].
 
 [1]: https://github.com/boto/boto3
 [2]: https://www.allcloud.io
@@ -125,3 +141,6 @@ TODO
 [9]: http://www.jython.org/
 [10]: http://pypyjs.org/
 [11]: https://common-lisp.net/project/clpython/
+[12]: http://docs.python-guide.org/en/latest/starting/install3/osx/
+[13]: https://apple.com
+[14]: http://docs.python-guide.org/en/latest/starting/install3/linux/
