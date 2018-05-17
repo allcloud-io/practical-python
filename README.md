@@ -132,11 +132,16 @@ Notice the version (`Python 3.6.5` in the output above). If you get `Python 2.x.
 
 ### Mac Users
 
-Follow these great [instructions][12] from Kenneth Reitz.
+TL;DR: `brew install python`.
+
+For detailed info, follow these great [instructions][12] from Kenneth Reitz.
+
+>NOTE: If you are running OSX High Sierra and are having trouble getting Python 3 to work for you
+>by default, take a look [here][15].
 
 ### Windows Users
 
-You can get a Mac [here][13].
+You can get a Mac [here][13]. Or follow the instructions [here][[16].
 
 ### Linux Users
 
@@ -156,3 +161,5 @@ You probably don't need assistance, but in case you do - [there you go][14].
 [12]: http://docs.python-guide.org/en/latest/starting/install3/osx/
 [13]: https://apple.com
 [14]: http://docs.python-guide.org/en/latest/starting/install3/linux/
+[15]: https://github.com/kennethreitz/python-guide/issues/895
+[16]: http://docs.python-guide.org/en/latest/starting/install3/win/
