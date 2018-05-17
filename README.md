@@ -116,7 +116,19 @@ And now for something completely different.
 
 ## Setting up Your Work Environment
 
-In order to run Python code you will need a Python interpreter.
+In order to run Python code you will need a Python interpreter. You may already have a Python
+interpreter installed on your machine. Any Python 3 release would do for this workshop.
+
+Type `python` on your shell. If you have Python installed, you should see something like the
+following:
+
+    Python 3.6.5 (default, Apr 25 2018, 14:23:58)
+    [GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)] on darwin
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>>
+
+Notice the version (`Python 3.6.5` in the output above). If you get `Python 2.x.x`, try running
+`python3`. If you still don't get a Python 3 interpreter, follow the instructions below.
 
 ### Mac Users
 
