@@ -104,7 +104,7 @@ variable we are creating, it figures it out on its own:
 ### What Python is Not?
 
 **Python is not a program**. True, most Linux distributions come with an executable called
-`python`. This is actually the most common **Python interpreter** called [CPython][7] (because it
+`python`. This is actually the most common Python **interpreter** called [CPython][7] (because it
 is a program that is written in C). Python is a **language**, and CPython is just one Python
 *implementation*. [There][8] [are][9] [many][10] [others][11].
 
