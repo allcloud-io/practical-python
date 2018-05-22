@@ -53,7 +53,7 @@ language ("machine language") which is extremely difficult to work with for huma
 CPU type speaks a **different** machine language, so the Intel CPU inside your laptop cannot run
 the same code as the ARM CPU inside your phone.
 
-When you write code in C (or Go or Rust for that matter), you feed your code into a **compiler**,
+When you write code in C (or Go or Rust for that matter), you feed your code to a **compiler**,
 which is simply a program that can read text files and generate files with machine language, or
 **binary files**, from them.
 
