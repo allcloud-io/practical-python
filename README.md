@@ -18,7 +18,7 @@ through the following topics:
 - What is Python?
 - 2 or 3?
 - Setting up Your Work Environment
-- Using the Interactive Shell
+- Using the Python Interpreter
 - Whitespace!
 - Data Types
 - Flow Control
@@ -147,6 +147,43 @@ You can get a Mac [here][13]. Or follow the instructions [here][[16].
 
 You probably don't need assistance, but in case you do - [there you go][14].
 
+## Using the Python Interpreter
+
+One of the nicest things about interpreted programming languages is that you can often work with
+them interactively. Let's try the following:
+
+Open your terminal, type `python` and hit Enter. Assuming you've [set up][17] your work
+environment, you should get a prompt similar to the following:
+
+    Python 3.6.5 (default, Apr 25 2018, 14:23:58)
+    [GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.1)] on darwin
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>>
+
+Now type `print('hi!')` and hit Enter.
+
+    >>> print('hi!')
+    hi!
+    >>>
+
+What do you know - it worked! You can also calculate stuff:
+
+    >>> 3 + 5
+    8
+    >>>
+
+You can assign values to variables and then use them:
+
+    >>> print('Hello', name)
+    Hello Bob
+    >>>
+
+As a matter of fact, you can type *any* Python expression into this shell and the interpreter will
+execute it.
+
+Now, while having an interactive shell is great for quick, small-scale ad-hoc tests, it is not very
+comfortable for writing a lot of code.
+
 [1]: https://github.com/boto/boto3
 [2]: https://www.allcloud.io
 [3]: https://www.python.org/doc/essays/blurb/
@@ -163,3 +200,4 @@ You probably don't need assistance, but in case you do - [there you go][14].
 [14]: http://docs.python-guide.org/en/latest/starting/install3/linux/
 [15]: https://github.com/kennethreitz/python-guide/issues/895
 [16]: http://docs.python-guide.org/en/latest/starting/install3/win/
+[17]: #setting-up-your-work-environment
