@@ -174,7 +174,8 @@ What do you know - it worked! You can also calculate stuff:
 
 You can assign values to variables and then use them:
 
-    >>> print('Hello', name)
+    >>> name = 'Bob'
+    >>> print("Hello", name)
     Hello Bob
     >>>
 
