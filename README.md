@@ -145,7 +145,7 @@ You can get a Mac [here][13]. Or follow the instructions [here][16].
 
 ### Linux Users
 
-You probably don't need assistance, but in case you do - [there you go][14].
+You probably feel you don't need assistance, but in case that's not true - [there you go][14].
 
 ## Using the Python Interpreter
 
