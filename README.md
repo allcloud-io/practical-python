@@ -141,7 +141,7 @@ For detailed info, follow these great [instructions][12] from Kenneth Reitz.
 
 ### Windows Users
 
-You can get a Mac [here][13]. Or follow the instructions [here][[16].
+You can get a Mac [here][13]. Or follow the instructions [here][16].
 
 ### Linux Users
 
