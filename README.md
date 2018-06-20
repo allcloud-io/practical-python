@@ -23,6 +23,8 @@ through the following topics:
 - Data Types
 - Flow Control
 - Data Structures
+- I/O
+- Functions
 - Importing Modules
 - Dependency Management
 - Error Handling
