@@ -19,7 +19,7 @@ through the following topics:
 - 2 or 3?
 - Setting up Your Work Environment
 - Using the Python Interpreter
-- Whitespace!
+- Indentation!
 - Data Types
 - Flow Control
 - Data Structures
@@ -37,7 +37,8 @@ through the following topics:
 
 >Fun fact! Python is named after [Monty Python's Flying Circus][4]. The official Python docs are
 >full of Monty Python references, jokes and easter eggs. By the way, if you don't know who Monty
->Python are, please stop reading this guide as you obviously have more important things to learn.
+>Python are, please stop reading this guide right away as you obviously have more important things
+>to learn.
 
 OK, back to reality. From the official Python [documentation][3]:
 
@@ -183,7 +184,72 @@ As a matter of fact, you can type *any* Python expression into this shell and th
 execute it.
 
 Now, while having an interactive shell is great for quick, small-scale ad-hoc tests, it is not very
-comfortable for writing a lot of code.
+comfortable for writing a lot of code. So, let's write a lot of code! Or, *some* code, at least.
+
+## Indentation!
+
+If you are completely new to Python, this section might cause you to raise an eyebrow or two. We've
+even heard about some extreme cases in the history in which people who had been exposed to the
+following information took a vow on the spot to never write a line of Python. Many of them are now
+Java developers.
+
+So, let's get on with it.
+
+In Python, the following two code snippets are not the same:
+
+    for i in range(5):
+        print(i)
+    print('Done!')
+
+    for i in range(5):
+        print(i)
+        print('Done!')
+
+When running the first snippet, the following output is given:
+
+    0
+    1
+    2
+    3
+    4
+    Done!
+
+When running the second snippet, the output is as follows:
+
+    0
+    Done!
+    1
+    Done!
+    2
+    Done!
+    3
+    Done!
+    4
+    Done!
+
+As you might have noticed, the only difference between the two pieces of code is that the 3rd line
+in the 2nd piece is indented one step to the right. While in most programming languages this makes
+no difference and the program's behavior would remain identical, that's not the case with Python.
+
+**Python cares about indentation.**
+
+This means that *the way you indent your code* directly affects the *behavior* of your program, not
+only the visual grouping of the code. In the case of this example, the indentation determines
+whether the last `print` statement is a part of the *for loop* that precedes it.
+
+>NOTE: While Python is the only *mainstream* programming language (at the time of writing) which is
+>indentation-sensitive, it's definitely not the only one overall.
+
+### Indentation Sensitivity is Good for You
+
+Some people like Python's approach towards indentation, and some people simply hate it.
+
+### Python Indentation Rules
+
+Following are the important indentation rules you should follow when writing Python code:
+
+- You can use either tabs or spaces, but be consistent.
+- 
 
 [1]: https://github.com/boto/boto3
 [2]: https://www.allcloud.io
