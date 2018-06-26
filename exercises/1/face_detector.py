@@ -13,15 +13,45 @@ def read_image_from_s3(client, bucket, key):
 
     return data
 
-def send_email(celebrities, unrecognized_faces):
+def send_email(client, from_address, to_addresses, celebrities):
     print('Sending email')
+
+    data = ""
+
+    if len(celebrities) == 1:
+        data = f"{celebrities[0]} is at the door."
+    elif len(celebrities) > 1:
+        data = f"The following people are at the door:\n" + ', '.join(celebrities) + '.'
+
+    client.send_email(
+        Source=from_address,
+        Destination={
+            'ToAddresses': to_addresses.split(',')
+        },
+        Message={
+            'Subject': {
+                'Charset': 'UTF-8',
+                'Data': "There's someone at the door!",
+            },
+            'Body': {
+                'Text': {
+                    'Charset': 'UTF-8',
+                    'Data': data,
+                },
+            },
+        },
+    )
 
 def main():
     bucket = sys.argv[1]
     key = sys.argv[2]
+    from_address = sys.argv[3]
+    to_addresses = sys.argv[4]
+    region = sys.argv[5]
 
-    s3 = boto3.resource('s3', region_name='eu-west-1')
-    rek = boto3.client('rekognition', region_name='eu-west-1')
+    s3 = boto3.resource('s3', region_name=region)
+    rek = boto3.client('rekognition', region_name=region)
+    ses = boto3.client('ses', region_name=region)
 
     try:
         image_data = read_image_from_s3(s3, bucket, key)
@@ -31,11 +61,14 @@ def main():
         print(traceback.format_exc())
         sys.exit(1)
 
-    celebrities = response['CelebrityFaces']
+    celebrities = []
+    for i in response['CelebrityFaces']:
+        celebrities.append(i['Name'])
+
     if celebrities:
         print(f'Detected {len(celebrities)} known face(s):')
         for celebrity in celebrities:
-            print(celebrity['Name'])
+            print(celebrity)
 
     unrecognized_faces = response['UnrecognizedFaces']
     if unrecognized_faces:
@@ -43,9 +76,10 @@ def main():
 
     if not celebrities and not unrecognized_faces:
         print('No faces detected')
+        sys.exit()
 
     try:
-        send_email(celebrities, unrecognized_faces)
+        send_email(ses, from_address, to_addresses, celebrities)
     except:
         print('Woops! Could not send the email. Here is what we know:')
         print(traceback.format_exc())
