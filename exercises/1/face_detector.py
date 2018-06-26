@@ -22,6 +22,8 @@ def send_email(client, from_address, to_addresses, celebrities):
         data = f"{celebrities[0]} is at the door."
     elif len(celebrities) > 1:
         data = f"The following people are at the door:\n" + ', '.join(celebrities) + '.'
+    else:
+        print('Celebrities list is empty (why was this function called?)')
 
     client.send_email(
         Source=from_address,
