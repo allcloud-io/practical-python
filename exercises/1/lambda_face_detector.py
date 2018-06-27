@@ -46,7 +46,7 @@ def send_email(client, from_address, to_addresses, celebrities):
         },
     )
 
-def main(event, context):
+def lambda_handler(event, context):
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = event['Records'][0]['s3']['object']['key']
     from_address = os.environ['from_address']
@@ -102,4 +102,4 @@ if __name__ == "__main__":
     }
   ]
 }"""
-    main(json.loads(sample_event), None)
+    lambda_handler(json.loads(sample_event), None)
