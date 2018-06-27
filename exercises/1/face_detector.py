@@ -72,6 +72,12 @@ def main():
         for celebrity in celebrities:
             print(celebrity)
 
+        try:
+            send_email(ses, from_address, to_addresses, celebrities)
+        except:
+            print('Woops! Could not send the email. Here is what we know:')
+            print(traceback.format_exc())
+
     unrecognized_faces = response['UnrecognizedFaces']
     if unrecognized_faces:
         print(f'Detected {len(unrecognized_faces)} unknown person(s)')
@@ -79,12 +85,6 @@ def main():
     if not celebrities and not unrecognized_faces:
         print('No faces detected')
         sys.exit()
-
-    try:
-        send_email(ses, from_address, to_addresses, celebrities)
-    except:
-        print('Woops! Could not send the email. Here is what we know:')
-        print(traceback.format_exc())
 
 if __name__ == "__main__":
     main()
