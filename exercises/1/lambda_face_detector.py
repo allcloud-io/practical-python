@@ -88,4 +88,18 @@ def main(event, context):
         sys.exit()
 
 if __name__ == "__main__":
-    main(json.loads(sys.argv[1]), None)
+    sample_event = """{
+  "Records": [
+    {
+      "s3": {
+        "bucket": {
+          "name": "my-bucket"
+        },
+        "object": {
+          "key": "my-key"
+        }
+      }
+    }
+  ]
+}"""
+    main(json.loads(sample_event), None)
