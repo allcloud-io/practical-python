@@ -102,4 +102,5 @@ if __name__ == "__main__":
     }
   ]
 }"""
+
     lambda_handler(json.loads(sample_event), None)
