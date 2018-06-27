@@ -4,21 +4,19 @@ import os
 import sys
 import traceback
 
-def read_image(filename):
-    with open(filename, 'rb') as image:
-        return image.read()
 
+# This function reads an image file from S3 and return its contents.
 def read_image_from_s3(client, bucket, key):
     obj = client.Object(bucket, key)
     data = obj.get()['Body'].read()
 
     return data
 
+# This function notifies a user about celebrities at their door.
 def send_email(client, from_address, to_addresses, celebrities):
     print('Sending email')
 
     data = ""
-
     if len(celebrities) == 1:
         data = f"{celebrities[0]} is at the door."
     elif len(celebrities) > 1:
@@ -46,22 +44,34 @@ def send_email(client, from_address, to_addresses, celebrities):
         },
     )
 
+# This function will be called by Lambda.
+# Your code will start running from here.
 def lambda_handler(event, context):
+    # Here we extract the bucket and object information from the event
+    # we get from S3.
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = event['Records'][0]['s3']['object']['key']
-    from_address = os.environ['from_address']
-    to_addresses = os.environ['to_addresses']
-    region = os.getenv('region', None)
 
-    s3 = boto3.resource('s3', region_name=region)
-    rek = boto3.client('rekognition', region_name=region)
-    ses = boto3.client('ses', region_name=region)
+    # Here we read the email configuration from the environment variables
+    # we've defined in Lambda.
+    from_address = os.environ['email_from']
+    to_addresses = os.environ['email_to']
 
+    # Here we create the AWS clients which allow us to talk to the various
+    # AWS services.
+    s3 = boto3.resource('s3')
+    rek = boto3.client('rekognition')
+    ses = boto3.client('ses')
+
+    # read_image_from_s3() and recognize_celebrities() may throw exceptions.
+    # Therefore, we wrap the calls to these functions in try...except.
     try:
         image_data = read_image_from_s3(s3, bucket, key)
         response = rek.recognize_celebrities(Image={'Bytes': image_data})
     except:
         print('Oh no! An error has occurred. Maybe the following will help:')
+        # Print a stack trace, which contains information regarding where
+        # exactly in the code the error has occurred.
         print(traceback.format_exc())
         sys.exit(1)
 
@@ -69,6 +79,7 @@ def lambda_handler(event, context):
     for i in response['CelebrityFaces']:
         celebrities.append(i['Name'])
 
+    # If celebrities is not an empty list
     if celebrities:
         print(f'Detected {len(celebrities)} known face(s):')
         for celebrity in celebrities:
@@ -87,6 +98,8 @@ def lambda_handler(event, context):
         print('No faces detected')
         sys.exit()
 
+# The following will be ignored by Lambda.
+# It is intended for running the code locally.
 if __name__ == "__main__":
     sample_event = """{
   "Records": [
